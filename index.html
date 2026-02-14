@@ -19,7 +19,6 @@
     --text-muted: #b8b8c8;
     --text-dim: #6e6e80;
     --border: rgba(255, 255, 255, 0.08);
-    --glow: rgba(255, 8, 68, 0.3);
 }
 
 * {
@@ -50,8 +49,7 @@ body::before {
     height: 100%;
     background: 
         radial-gradient(circle at 20% 30%, rgba(255, 8, 68, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(255, 107, 157, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.04) 0%, transparent 50%);
+        radial-gradient(circle at 80% 70%, rgba(255, 107, 157, 0.06) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
     animation: bgPulse 15s ease-in-out infinite;
@@ -99,8 +97,7 @@ body::before {
     padding: 8px 12px;
     display: flex;
     gap: 4px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .nav-btn {
@@ -123,17 +120,12 @@ body::before {
 .nav-btn:hover {
     background: rgba(255, 8, 68, 0.1);
     color: var(--accent-red);
-    transform: translateY(-1px);
 }
 
 .nav-btn.active {
     background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-pink) 100%);
     color: white;
     box-shadow: 0 8px 24px rgba(255, 8, 68, 0.3);
-}
-
-.nav-icon {
-    font-size: 16px;
 }
 
 /* Hero Section */
@@ -164,19 +156,13 @@ body::before {
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 80px;
+    font-size: 72px;
     font-weight: 900;
     line-height: 1.1;
     margin-bottom: 25px;
@@ -188,7 +174,7 @@ body::before {
 }
 
 .hero-subtitle {
-    font-size: 24px;
+    font-size: 22px;
     color: var(--text-muted);
     font-weight: 500;
     margin-bottom: 40px;
@@ -202,11 +188,11 @@ body::before {
 
 /* Sections */
 section {
-    padding: 100px 0;
+    padding: 80px 0;
 }
 
 .section-header {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .section-label {
@@ -220,14 +206,17 @@ section {
 
 .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 900;
     line-height: 1.2;
     margin-bottom: 20px;
-    background: linear-gradient(135deg, #fff 0%, var(--text-muted) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 20px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    max-width: 700px;
 }
 
 /* Glass Cards */
@@ -236,35 +225,21 @@ section {
     backdrop-filter: blur(20px) saturate(180%);
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 40px;
+    padding: 35px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.glass-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .glass-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     border-color: rgba(255, 8, 68, 0.3);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4),
-                0 0 0 1px rgba(255, 8, 68, 0.1) inset,
-                0 0 40px rgba(255, 8, 68, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
 /* Grid Layouts */
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 25px;
 }
 
 .grid-3 {
@@ -285,50 +260,80 @@ section {
     backdrop-filter: blur(20px);
     border: 2px solid var(--border);
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 35px 28px;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.question-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 8, 68, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.4s;
-}
-
-.question-card:hover::after {
-    opacity: 1;
 }
 
 .question-card:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-8px);
     border-color: var(--accent-red);
     box-shadow: 0 20px 60px rgba(255, 8, 68, 0.2);
 }
 
 .question-icon {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 42px;
+    margin-bottom: 18px;
     display: block;
-    filter: drop-shadow(0 4px 12px rgba(255, 8, 68, 0.3));
 }
 
 .question-text {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     color: var(--text-light);
-    line-height: 1.6;
-    position: relative;
-    z-index: 1;
+    line-height: 1.5;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.skill-category {
+    background: rgba(19, 19, 26, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 8, 68, 0.3);
+}
+
+.skill-icon {
+    font-size: 36px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.skill-category h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.skill-tag {
+    padding: 6px 14px;
+    background: rgba(255, 8, 68, 0.1);
+    border: 1px solid rgba(255, 8, 68, 0.2);
+    border-radius: 20px;
+    color: var(--accent-pink);
+    font-size: 13px;
+    font-weight: 600;
 }
 
 /* Stat Cards */
@@ -337,46 +342,26 @@ section {
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 35px 28px;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.stat-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-red), var(--accent-pink), var(--accent-orange));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.stat-card:hover::before {
-    transform: scaleX(1);
 }
 
 .stat-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     border-color: rgba(255, 8, 68, 0.3);
-    box-shadow: 0 20px 60px rgba(255, 8, 68, 0.15);
 }
 
 .stat-number {
     font-family: 'Playfair Display', serif;
-    font-size: 64px;
+    font-size: 56px;
     font-weight: 900;
-    background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-pink) 50%, var(--accent-orange) 100%);
+    background: linear-gradient(135deg, var(--accent-red) 0%, var(--accent-pink) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     line-height: 1;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     display: block;
 }
 
@@ -385,101 +370,57 @@ section {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-/* Experience Card */
-.experience-card {
+/* Project Cards */
+.project-card {
     background: rgba(19, 19, 26, 0.6);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 50px;
-    position: relative;
-    overflow: hidden;
+    padding: 40px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-bottom: 25px;
 }
 
-.experience-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 100%;
-    background: linear-gradient(180deg, var(--accent-red), var(--accent-pink));
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 8, 68, 0.3);
 }
 
-.exp-header {
-    margin-bottom: 35px;
-    padding-bottom: 25px;
-    border-bottom: 1px solid var(--border);
+.project-header {
+    margin-bottom: 20px;
 }
 
-.exp-title {
+.project-title {
     font-family: 'Playfair Display', serif;
     font-size: 32px;
     font-weight: 900;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
-.exp-meta {
+.project-subtitle {
+    font-size: 18px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.project-meta {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     flex-wrap: wrap;
     margin-top: 15px;
 }
 
 .badge {
-    padding: 8px 18px;
+    padding: 6px 16px;
     background: linear-gradient(135deg, rgba(255, 8, 68, 0.15) 0%, rgba(255, 107, 157, 0.15) 100%);
     border: 1px solid rgba(255, 8, 68, 0.3);
     border-radius: 30px;
     color: var(--accent-pink);
     font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.exp-section {
-    margin-bottom: 30px;
-}
-
-.exp-section:last-child {
-    margin-bottom: 0;
-}
-
-.exp-label {
-    color: var(--accent-red);
-    font-size: 11px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
-}
-
-.exp-section p {
-    color: var(--text-muted);
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-.highlight {
-    color: var(--text-light);
-    font-weight: 700;
-}
-
-/* GPA Badge */
-.gpa-badge {
-    display: inline-block;
-    padding: 8px 18px;
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(52, 211, 153, 0.15) 100%);
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    border-radius: 30px;
-    color: #34d399;
-    font-size: 14px;
-    font-weight: 800;
-    margin-left: 15px;
-    letter-spacing: 0.5px;
 }
 
 /* Chart Container */
@@ -488,7 +429,8 @@ section {
     backdrop-filter: blur(20px);
     border: 1px solid var(--border);
     border-radius: 24px;
-    padding: 50px;
+    padding: 40px;
+    margin-top: 30px;
 }
 
 /* Content Typography */
@@ -496,21 +438,19 @@ p {
     color: var(--text-muted);
     line-height: 1.8;
     margin-bottom: 15px;
+    font-size: 16px;
 }
 
-h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
-    font-weight: 700;
-    margin-bottom: 15px;
+.highlight {
     color: var(--text-light);
+    font-weight: 700;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 60px 0;
-    margin-top: 100px;
+    padding: 50px 0;
+    margin-top: 80px;
     border-top: 1px solid var(--border);
     color: var(--text-dim);
     font-size: 14px;
@@ -523,15 +463,11 @@ footer {
     }
     
     .hero h1 {
-        font-size: 56px;
-    }
-    
-    .hero-subtitle {
-        font-size: 20px;
+        font-size: 52px;
     }
     
     .section-title {
-        font-size: 42px;
+        font-size: 38px;
     }
     
     .grid-2,
@@ -539,16 +475,6 @@ footer {
     .grid-4 {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-    
-    .stat-number {
-        font-size: 52px;
-    }
-    
-    .glass-card,
-    .experience-card,
-    .chart-container {
-        padding: 35px 28px;
     }
     
     .toolbar {
@@ -565,12 +491,6 @@ footer {
     .nav-btn {
         flex-shrink: 0;
     }
-    
-    .gpa-badge {
-        display: block;
-        margin: 15px 0 0 0;
-        width: fit-content;
-    }
 }
 
 @media (max-width: 640px) {
@@ -579,14 +499,14 @@ footer {
     }
     
     .hero h1 {
-        font-size: 42px;
+        font-size: 40px;
     }
     
     .section-title {
-        font-size: 36px;
+        font-size: 32px;
     }
     
-    .exp-title {
+    .project-title {
         font-size: 26px;
     }
     
@@ -599,7 +519,7 @@ footer {
     }
     
     section {
-        padding: 70px 0;
+        padding: 60px 0;
     }
 }
 </style>
@@ -610,21 +530,21 @@ footer {
 <!-- Navigation Toolbar -->
 <div class="nav-toolbar">
     <div class="toolbar">
-        <button class="nav-btn active" onclick="scrollTo('hero')">
+        <button class="nav-btn active" onclick="scrollToSection('hero')">
             <span class="nav-icon">🏠</span>
             <span>Home</span>
         </button>
-        <button class="nav-btn" onclick="scrollTo('about')">
+        <button class="nav-btn" onclick="scrollToSection('about')">
             <span class="nav-icon">✨</span>
             <span>About</span>
         </button>
-        <button class="nav-btn" onclick="scrollTo('experience')">
-            <span class="nav-icon">💼</span>
-            <span>Experience</span>
+        <button class="nav-btn" onclick="scrollToSection('skills')">
+            <span class="nav-icon">💫</span>
+            <span>Skills</span>
         </button>
-        <button class="nav-btn" onclick="scrollTo('joyride')">
+        <button class="nav-btn" onclick="scrollToSection('projects')">
             <span class="nav-icon">🎯</span>
-            <span>Joyride</span>
+            <span>Projects</span>
         </button>
     </div>
 </div>
@@ -648,19 +568,22 @@ footer {
     <div class="container">
         <div class="section-header">
             <div class="section-label">About Me</div>
-            <h2 class="section-title">Psychology Student.<br>Systems Thinker.</h2>
+            <h2 class="section-title">Where Psychology<br>Meets Creativity</h2>
         </div>
         
         <div class="glass-card">
-            <p style="font-size: 18px;">
-                Final-year Psychology student<span class="gpa-badge">GPA 3.72</span>
+            <p style="font-size: 17px; line-height: 1.9;">
+                I'm someone who gets excited about understanding <span class="highlight">why people do what they do</span> and turning that curiosity into systems that actually work. Whether it's analyzing engagement patterns, redesigning processes that aren't pulling their weight, or building something from scratch—I'm all in.
             </p>
-            <p style="margin-top: 20px; font-size: 17px;">
-                Hands-on experience in designing, scaling, and evaluating multi-branch internal engagement initiatives. I translate participation data into structural improvements and system redesigns, with a strong interest in operational excellence and data-informed decision-making within dynamic FMCG environments.
+            <p style="font-size: 17px; line-height: 1.9;">
+                My psychology background gives me the lens to <span class="highlight">read between the lines</span>, spot the friction points others miss, and design solutions that resonate with how people actually think and behave. But I'm not just about theory—I love the messy, hands-on work of <span class="highlight">making things happen</span>.
+            </p>
+            <p style="font-size: 17px; line-height: 1.9; margin-bottom: 0;">
+                I thrive in environments where <span class="highlight">ownership matters</span>, where asking "how can this be better?" isn't just welcomed—it's expected. If there's a gap, I'll find it. If there's a better way, I'll build it.
             </p>
         </div>
         
-        <div style="margin-top: 40px;">
+        <div style="margin-top: 35px;">
             <div class="grid-3">
                 <div class="question-card">
                     <span class="question-icon">💡</span>
@@ -679,136 +602,154 @@ footer {
     </div>
 </section>
 
-<!-- Why Hire Me -->
-<section>
+<!-- Skills Section -->
+<section id="skills">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Core Strengths</div>
-            <h2 class="section-title">Why You Should<br>Hire Me</h2>
+            <div class="section-label">What I Bring</div>
+            <h2 class="section-title">Skills & Capabilities</h2>
+            <p class="section-subtitle">Proven through real projects and experiences</p>
         </div>
         
-        <div class="grid-4">
-            <div class="glass-card">
-                <h3>🎯</h3>
-                <h3 style="font-size: 22px; margin-bottom: 12px;">Ownership</h3>
-                <p>I take initiative beyond assigned tasks.</p>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <span class="skill-icon">🎯</span>
+                <h3>Training & Development</h3>
+                <p style="margin-bottom: 15px;">Designing and delivering impactful learning experiences</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Training Design</span>
+                    <span class="skill-tag">Facilitation</span>
+                    <span class="skill-tag">Needs Analysis</span>
+                    <span class="skill-tag">Content Creation</span>
+                </div>
             </div>
-            <div class="glass-card">
-                <h3>📊</h3>
-                <h3 style="font-size: 22px; margin-bottom: 12px;">Analytical</h3>
-                <p>I diagnose systems using data, not assumptions.</p>
+            
+            <div class="skill-category">
+                <span class="skill-icon">📊</span>
+                <h3>Analysis & Strategy</h3>
+                <p style="margin-bottom: 15px;">Data-informed decision making and system optimization</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Behavioral Interviewing</span>
+                    <span class="skill-tag">Data Analysis</span>
+                    <span class="skill-tag">Problem Solving</span>
+                    <span class="skill-tag">Critical Thinking</span>
+                </div>
             </div>
-            <div class="glass-card">
-                <h3>⚡</h3>
-                <h3 style="font-size: 22px; margin-bottom: 12px;">Execution</h3>
-                <p>I implement improvements, not just ideas.</p>
+            
+            <div class="skill-category">
+                <span class="skill-icon">🚀</span>
+                <h3>Project & People</h3>
+                <p style="margin-bottom: 15px;">Leading teams and delivering results on time</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Project Management</span>
+                    <span class="skill-tag">Leadership</span>
+                    <span class="skill-tag">Public Speaking</span>
+                    <span class="skill-tag">Teamwork</span>
+                </div>
             </div>
-            <div class="glass-card">
-                <h3>📈</h3>
-                <h3 style="font-size: 22px; margin-bottom: 12px;">Growth</h3>
-                <p>I treat decline as feedback for redesign.</p>
+            
+            <div class="skill-category">
+                <span class="skill-icon">💻</span>
+                <h3>Tools & Tech</h3>
+                <p style="margin-bottom: 15px;">Proficient in modern productivity and creative tools</p>
+                <div class="skill-tags">
+                    <span class="skill-tag">Google Workspace</span>
+                    <span class="skill-tag">MS Office</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Adobe Suite</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Experience -->
-<section id="experience">
+<!-- Projects Section -->
+<section id="projects">
     <div class="container">
         <div class="section-header">
-            <div class="section-label">Professional Journey</div>
-            <h2 class="section-title">Experience</h2>
+            <div class="section-label">Featured Work</div>
+            <h2 class="section-title">Projects</h2>
         </div>
         
-        <div class="experience-card">
-            <div class="exp-header">
-                <h3 class="exp-title">Human Capital Intern @ Indomaret</h3>
-                <div class="exp-meta">
-                    <span class="badge">Feb – Jun 2024</span>
-                    <span class="badge">Jakarta</span>
+        <!-- Joyride Project -->
+        <div class="project-card">
+            <div class="project-header">
+                <h3 class="project-title">Joyride</h3>
+                <p class="project-subtitle">Seasonal internal gamification program</p>
+                <p style="margin-top: 15px; font-size: 16px;">Co-developed and executed across 6 office branches over 1 season (3 months). A comprehensive engagement initiative focused on sustainable participation and data-driven evolution.</p>
+                <div class="project-meta">
+                    <span class="badge">6 Branches</span>
+                    <span class="badge">3 Months</span>
+                    <span class="badge">309 → 172 Participants</span>
                 </div>
             </div>
             
-            <div class="exp-section">
-                <div class="exp-label">What I Did</div>
-                <p>Supported recruitment and behavioral assessments while delivering employer branding presentations to <span class="highlight">45+ prospective hires</span>. I designed interactive conflict resolution simulations that transformed standard training into experiential learning.</p>
+            <!-- Stats -->
+            <div style="margin-top: 35px;">
+                <div class="grid-4">
+                    <div class="stat-card">
+                        <span class="stat-number">309</span>
+                        <span class="stat-label">Week 1</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">172</span>
+                        <span class="stat-label">Week 12</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">44%</span>
+                        <span class="stat-label">Decline</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">6</span>
+                        <span class="stat-label">Branches</span>
+                    </div>
+                </div>
             </div>
             
-            <div class="exp-section">
-                <div class="exp-label">Going Beyond</div>
-                <p>Recognizing inefficiencies in training navigation, I proposed a WhatsApp chatbot prototype to streamline the process—receiving <span class="highlight">95% positive evaluation</span> from senior managers. This wasn't in my job description, but I saw an opportunity to improve the system.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Joyride -->
-<section id="joyride">
-    <div class="container">
-        <div class="section-header">
-            <div class="section-label">Featured Project</div>
-            <h2 class="section-title">Joyride</h2>
-        </div>
-        
-        <div class="glass-card">
-            <p style="font-size: 18px; line-height: 1.8;">
-                <span class="highlight">Seasonal internal gamification program</span> co-developed and executed across 6 office branches over 1 season (3 months). A comprehensive engagement initiative focused on sustainable participation and data-driven evolution.
-            </p>
-        </div>
-        
-        <!-- Stats -->
-        <div style="margin-top: 50px;">
-            <h3 style="margin-bottom: 30px; font-size: 24px;">Scale & Impact</h3>
-            <div class="grid-4">
-                <div class="stat-card">
-                    <span class="stat-number">309</span>
-                    <span class="stat-label">Week 1 Participants</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">172</span>
-                    <span class="stat-label">Week 12 Participants</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">44%</span>
-                    <span class="stat-label">Participation Decline</span>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">6</span>
-                    <span class="stat-label">Office Branches</span>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Chart -->
-        <div style="margin-top: 50px;">
-            <h3 style="margin-bottom: 30px; font-size: 24px;">Participation Trend</h3>
+            <!-- Chart -->
             <div class="chart-container">
                 <canvas id="trendChart"></canvas>
             </div>
-        </div>
-        
-        <!-- What I Did -->
-        <div style="margin-top: 50px;">
-            <h3 style="margin-bottom: 30px; font-size: 24px;">What I Actually Did</h3>
-            <div class="grid-2">
-                <div class="glass-card">
-                    <h3 style="font-size: 24px;">📊 Analyzed the Data</h3>
-                    <p>Monitored longitudinal engagement trends and identified the ~44% decline as a <span class="highlight">novelty-fatigue pattern</span> common in daily non-mandatory programs. Conducted regression and time-series forecasting to understand sustainability.</p>
-                </div>
-                <div class="glass-card">
-                    <h3 style="font-size: 24px;">🔧 Redesigned the System</h3>
-                    <p>Migrated from static Microsoft Forms quiz to a gamified SharePoint platform with <span class="highlight">AI-assisted JavaScript customization</span>. Launched thematic activations like the Valentine Interactive Board to shift from routine to experiential engagement.</p>
+            
+            <!-- What I Did -->
+            <div style="margin-top: 35px;">
+                <div class="grid-2">
+                    <div class="glass-card">
+                        <h3 style="font-size: 20px; margin-bottom: 15px;">📊 Analyzed the Data</h3>
+                        <p>Monitored longitudinal engagement trends and identified the ~44% decline as a <span class="highlight">novelty-fatigue pattern</span>. Conducted regression and forecasting analysis to inform structural improvements.</p>
+                    </div>
+                    <div class="glass-card">
+                        <h3 style="font-size: 20px; margin-bottom: 15px;">🔧 Redesigned the System</h3>
+                        <p>Migrated from static Microsoft Forms to gamified SharePoint platform with <span class="highlight">AI-assisted JavaScript</span>. Launched thematic activations like Valentine Interactive Board.</p>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <!-- Learnings -->
-        <div style="margin-top: 50px;">
-            <h3 style="margin-bottom: 30px; font-size: 24px;">What I Learned</h3>
-            <div class="glass-card">
-                <p><span class="highlight">Strong initial adoption</span> doesn't guarantee retention. Week 1 brought 309 participants—proof of concept validity.</p>
-                <p><span class="highlight">Novelty fades predictably.</span> The ~44% decline wasn't failure—it was feedback. Daily engagement mechanics need continuous structural evolution.</p>
-                <p style="margin-bottom: 0;"><span class="highlight">Strategic pivots matter.</span> When I saw the trend, I didn't just report it. I rebuilt the platform. That's ownership.</p>
+        <!-- Other Projects -->
+        <div class="grid-2" style="margin-top: 30px;">
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title" style="font-size: 26px;">Mental Health Training</h3>
+                    <p class="project-subtitle" style="font-size: 16px;">KKN Community Initiative</p>
+                    <div class="project-meta">
+                        <span class="badge">30 Participants</span>
+                        <span class="badge">Purwokerto</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">Coordinated with local stakeholders to deliver training for mental health volunteers. Served as MC while monitoring event schedules and participant progress.</p>
+            </div>
+            
+            <div class="project-card">
+                <div class="project-header">
+                    <h3 class="project-title" style="font-size: 26px;">Campus Inclusivity Research</h3>
+                    <p class="project-subtitle" style="font-size: 16px;">SAUDC Strategic Research</p>
+                    <div class="project-meta">
+                        <span class="badge">Policy Impact</span>
+                        <span class="badge">Dean Presentation</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px;">Led campus inclusivity research from planning to execution. Findings influenced policy decisions and were presented to the Dean.</p>
             </div>
         </div>
     </div>
@@ -823,7 +764,7 @@ footer {
         </div>
         
         <div class="glass-card">
-            <p style="font-size: 18px;">
+            <p style="font-size: 17px;">
                 I aim to own processes, improve systems, and deliver measurable impact in dynamic environments.
             </p>
             <p style="font-size: 17px; margin-bottom: 0;">
@@ -840,44 +781,56 @@ footer {
 </footer>
 
 <script>
-// Navigation
-function scrollTo(id) {
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+// Navigation with working scroll
+function scrollToSection(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
-// Update active nav button
+// Update active nav button on scroll
+let ticking = false;
 window.addEventListener('scroll', () => {
-    const sections = ['hero', 'about', 'experience', 'joyride'];
-    const buttons = document.querySelectorAll('.nav-btn');
-    
-    let current = 'hero';
-    sections.forEach(id => {
-        const section = document.getElementById(id);
-        if (section) {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= 200 && rect.bottom >= 200) {
-                current = id;
-            }
-        }
-    });
-    
-    buttons.forEach((btn, i) => {
-        if (sections[i] === current) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            const sections = ['hero', 'about', 'skills', 'projects'];
+            const buttons = document.querySelectorAll('.nav-btn');
+            
+            let current = 'hero';
+            sections.forEach(id => {
+                const section = document.getElementById(id);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top <= 200 && rect.bottom >= 200) {
+                        current = id;
+                    }
+                }
+            });
+            
+            buttons.forEach((btn, i) => {
+                if (sections[i] === current) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            ticking = false;
+        });
+        ticking = true;
+    }
 });
 
-// Chart
+// Animated Chart
 const ctx = document.getElementById('trendChart');
 if (ctx) {
-    new Chart(ctx, {
+    const chart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10', 'Week 11', 'Week 12'],
             datasets: [{
+                label: 'Participants',
                 data: [309, 295, 280, 260, 240, 220, 210, 200, 190, 185, 178, 172],
                 borderColor: '#ff0844',
                 backgroundColor: 'rgba(255, 8, 68, 0.1)',
@@ -896,6 +849,13 @@ if (ctx) {
         options: {
             responsive: true,
             maintainAspectRatio: true,
+            animation: {
+                duration: 2000,
+                easing: 'easeInOutQuart',
+                delay: (context) => {
+                    return context.dataIndex * 100;
+                }
+            },
             plugins: {
                 legend: { display: false },
                 tooltip: {
@@ -907,10 +867,7 @@ if (ctx) {
                     padding: 15,
                     displayColors: false,
                     titleFont: { size: 14, weight: 'bold' },
-                    bodyFont: { size: 13 },
-                    callbacks: {
-                        label: (context) => 'Participants: ' + context.parsed.y
-                    }
+                    bodyFont: { size: 13 }
                 }
             },
             scales: {
@@ -937,6 +894,18 @@ if (ctx) {
             }
         }
     });
+    
+    // Trigger animation when chart comes into view
+    const chartContainer = document.querySelector('.chart-container');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                chart.update();
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    observer.observe(chartContainer);
 }
 </script>
 
